@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D4AF754B-CA41-4A76-8133-AA5CDF4764AA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Ex03.garageLogic</RootNamespace>
-    <AssemblyName>Ex03.garageLogic</AssemblyName>
+    <ProjectGuid>{5A8B4BB1-24B8-4C64-A17E-C5388A934FD3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Ex03.ConsoleUI</RootNamespace>
+    <AssemblyName>Ex03.ConsoleUI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,27 +32,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElctricCar.cs" />
-    <Compile Include="ElctricMotorcycle.cs" />
-    <Compile Include="ElctricVehicle.cs" />
-    <Compile Include="Garage.cs" />
-    <Compile Include="MotorizidCar.cs" />
-    <Compile Include="MotorizidMotorcycle.cs" />
-    <Compile Include="MotorizidVehicle.cs" />
-    <Compile Include="SpecificAnswerForVehicle.cs" />
-    <Compile Include="SpecificQuestionForVehicle.cs" />
-    <Compile Include="Truck.cs" />
-    <Compile Include="ValueOutOfRangeException.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="VehicleInGarage.cs" />
-    <Compile Include="Wheel.cs" />
+    <ProjectReference Include="..\Ex03.garageLogic\Ex03.garageLogic.csproj">
+      <Project>{d4af754b-ca41-4a76-8133-aa5cdf4764aa}</Project>
+      <Name>Ex03.garageLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GarageManegment.cs" />
+    <Compile Include="Validations.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

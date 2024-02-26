@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ex03.garageLogic
 {
-    internal class Wheel
+    public class Wheel
     {
-        private string m_ManuFacturerName;
+        private string m_ManufacturerName;
         private float  m_CurrentAirPressure;
         private float  m_MaxAirPressure;
 
-        public string ManuFacturerName 
+        public string ManufacturerName 
         {
-            get { return m_ManuFacturerName; }
+            get { return m_ManufacturerName; }
             set 
             {
                 if ((value.ToString())[0] == ' ')
@@ -21,7 +18,7 @@ namespace Ex03.garageLogic
                     throw new Exception("Invalid Name!\n\n");
                 }
 
-                m_ManuFacturerName = value;
+                m_ManufacturerName = value;
             }
         }
 
@@ -53,7 +50,7 @@ namespace Ex03.garageLogic
         public Wheel(string i_ManufacturerName, float i_CurrentAirPressure, float i_MaxAirPressure)
         {
             m_MaxAirPressure = i_MaxAirPressure;
-            ManuFacturerName = i_ManufacturerName;
+            ManufacturerName = i_ManufacturerName;
             CurrentAirPressure = i_CurrentAirPressure;
         }
 
@@ -65,8 +62,8 @@ namespace Ex03.garageLogic
 
         public override string ToString()
         {
-            string message = string.Format($@"
-Manufacturer Name: {m_ManuFacturerName}
+            string message = string.Format(
+$@"Manufacturer Name: {m_ManufacturerName}
 Current Air Pressure: {m_CurrentAirPressure}
 Max Air Pressure: {m_MaxAirPressure}
 
