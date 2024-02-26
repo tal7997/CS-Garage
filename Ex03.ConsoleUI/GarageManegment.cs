@@ -13,7 +13,7 @@ namespace Ex03.ConsoleUI
         private const string k_NewLines = "\n\n";
         private const string k_InvalidInputMessage = "Invalid Input!";
 
-        private bool m_ContinueProgram;
+        private bool   m_ContinueProgram;
         private Garage m_Garage;
 
 
@@ -23,7 +23,7 @@ namespace Ex03.ConsoleUI
             m_ContinueProgram = true;
         }
 
-        public static void Main()
+        public static void Run()
         {
             GarageManagement program = new GarageManagement();
 
