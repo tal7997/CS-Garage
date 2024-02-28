@@ -97,7 +97,7 @@ namespace Ex03.GarageLogic
         {
             float answer;
 
-            if (float.TryParse(i_Answer, out answer))
+            if (!float.TryParse(i_Answer, out answer))
             {
                 throw new FormatException("\n" + k_InvalidInputMessage + k_NewLines);
             }

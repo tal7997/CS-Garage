@@ -57,7 +57,10 @@ namespace Ex03.garageLogic
         public void Inflate(float airPressure)
         {
             //add check range
-            CurrentAirPressure += airPressure;
+            if(CurrentAirPressure + airPressure <= m_MaxAirPressure)
+            {
+                CurrentAirPressure += airPressure;
+            }
         }
 
         public override string ToString()

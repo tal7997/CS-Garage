@@ -161,7 +161,6 @@ namespace Ex03.ConsoleUI
                     throw new FormatException(k_InvalidPhoneNumberMessage + k_NewLines);
                 }
             }
-
             else if (digitsOnly.Length == i_PhoneNumber.Length - 1)
             {
                 if (digitsOnly.Length != 10 || digitsOnly[0] != '0' || i_PhoneNumber[3] != '-')
@@ -169,7 +168,6 @@ namespace Ex03.ConsoleUI
                     throw new FormatException(k_InvalidPhoneNumberMessage + k_NewLines);
                 }
             }
-
             else
             {
                 throw new FormatException(k_InvalidPhoneNumberMessage + k_NewLines);

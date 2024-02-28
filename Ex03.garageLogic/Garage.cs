@@ -11,6 +11,7 @@ namespace Ex03.GarageLogic
         private const string k_NewLines = "\n\n";
 
         private readonly List<string> r_VehiclesTypeNames = new List<string> { "Motorized Car", "Motorized Motorcycle", "Truck", "Electric Car", "Electric Motorcycle" };
+        //private readonly List<string> r_VehiclesTypeNames = new List<string> { "Motorized Car", "Motorized Motorcycle", "Truck", "Electric Car", "Electric Motorcycle", "Tractor" };
 
         private Dictionary<string, VehicleInGarage> m_Vehicles;
 
@@ -29,6 +30,15 @@ namespace Ex03.GarageLogic
             ElectricCar,
             ElectricMotorcycle,
         }
+        /*public enum eVehiclesType
+        {
+            MotorizedCar = 1,
+            MotorizedMotorcycle,
+            Truck,
+            ElectricCar,
+            ElectricMotorcycle,
+            Tractor
+        }*/
 
         public List<string> VehiclesTypeNames
         {
@@ -37,7 +47,6 @@ namespace Ex03.GarageLogic
                 return r_VehiclesTypeNames;
             }
         }
-
 
         public Garage()
         {
@@ -172,6 +181,10 @@ namespace Ex03.GarageLogic
             {
                 vehicle = new ElectricMotorcycle();
             }
+            /*else if (i_VehicleType == (int)eVehiclesType.Tractor)
+            {
+                vehicle = new Tractor();
+            }*/
 
             return vehicle;
         }

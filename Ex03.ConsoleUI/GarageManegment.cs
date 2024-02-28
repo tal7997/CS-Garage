@@ -138,7 +138,6 @@ Please choose from the following options:
                     default:
                         {
                             throw new Exception(k_InvalidInputMessage + k_NewLines);
-                            //throw new 
                         }
                 }
             }
@@ -159,7 +158,6 @@ Please choose from the following options:
 
             if (vehicleInGarage == null)
             {
-
                 int vehicleType = GetVehicleType(m_Garage.VehiclesTypeNames);
 
                 Vehicle vehicle = m_Garage.CreateNewVehicle(vehicleType);
@@ -183,7 +181,11 @@ Please choose from the following options:
                 m_Garage.AddNewVehicle(vehicle, ownerName, ownerPhone);
 
                 Console.WriteLine("Your vehicle is being repaired" + k_NewLines);
-
+            }
+            else
+            {
+                vehicleInGarage.VehicleState = VehicleInGarage.eVehicleState.UnderRepair;
+                Console.WriteLine("The vehicle return to be UnderRepair\n");
             }
         }
 
@@ -210,7 +212,11 @@ Please choose from the following options:
 
             if (vehicle != null)
             {
-                Console.WriteLine("The car is under repair/n/n");
+                Console.WriteLine($"This vehicle is exist in the system!\n");
+                /*if (vehicle.Vehicle is MotorizedCar)
+                {
+                    Console.WriteLine($"This Motorized Car is exist in the system!\n");
+                }*/
             }
 
             return vehicle;
@@ -227,7 +233,7 @@ Please choose from the following options:
                 {
                     if (count == 1)
                     {
-                        Console.WriteLine($"------Vehicle's License Numbers In State {i_State.ToString()}------\n");
+                        Console.WriteLine($"------Vehicle's License Numbers In State {i_State}------\n");
                     }
                     Console.WriteLine(count++ + ". " + vehicle.Vehicle.LicenseNumber);
                     isVehicleStateExist = true;
@@ -236,7 +242,7 @@ Please choose from the following options:
 
             if (!isVehicleStateExist)
             {
-                Console.WriteLine($"There are no vehicles in the garage in the state: {i_State.ToString()}");
+                Console.WriteLine($"There are no vehicles in the garage in the state: {i_State}");
             }
 
             Console.WriteLine(k_NewLine);
@@ -244,7 +250,7 @@ Please choose from the following options:
 
         public void UpdateVehicleState()
         {
-            int newState = 0;
+            int newState;
 
             Console.WriteLine("Please enter the license number: ");
             string licenseNumber = Console.ReadLine();
@@ -290,8 +296,8 @@ Please choose from the following options:
 
         public void Refuel()
         {
-            float fuelAmountToFill = 0;
-            int fuelType = 0;
+            float fuelAmountToFill;
+            int fuelType;
 
             Console.WriteLine("Please enter the license number: ");
             string licenseNumber = Console.ReadLine();
@@ -338,7 +344,7 @@ Please choose from the following options:
 
         public void Charge()
         {
-            float chargingTime = 0;
+            float chargingTime;
 
             Console.WriteLine("Please enter the license number: ");
             string licenseNumber = Console.ReadLine();
@@ -369,7 +375,7 @@ Please choose from the following options:
 
             foreach (VehicleInGarage vehicle in m_Garage.Vehicles.Values)
             {
-                Console.WriteLine(counter++ + ". " + vehicle.Vehicle.LicenseNumber);
+                Console.WriteLine(counter++ + ". " + vehicle.Vehicle.LicenseNumber + $" - {vehicle.VehicleState}");
             }
 
             Console.WriteLine(k_NewLine);
@@ -394,36 +400,31 @@ Please choose from the following options:
                 {
                     Console.WriteLine(((MotorizedCar)vehicle).ToString());
                 }
-
                 else if (vehicle is MotorizedMotorcycle)
                 {
                     Console.WriteLine(((MotorizedMotorcycle)vehicle).ToString());
                 }
-
                 else if (vehicle is ElectricCar)
                 {
                     Console.WriteLine(((ElectricCar)vehicle).ToString());
                 }
-
                 else if (vehicle is ElectricMotorcycle)
                 {
                     Console.WriteLine(((ElectricMotorcycle)vehicle).ToString());
                 }
-
                 else if (vehicle is Truck)
                 {
                     Console.WriteLine(((Truck)vehicle).ToString());
                 }
-
+                /*else if (vehicle is Tractor)
+                {
+                    Console.WriteLine(((Tractor)vehicle).ToString());
+                }*/
             }
-
             else
             {
                 throw new Exception("The vehicle does not exist in the garage" + k_NewLines);
             }
-
         }
-
     }
-
 }
