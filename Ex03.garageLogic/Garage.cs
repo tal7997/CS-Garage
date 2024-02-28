@@ -7,19 +7,18 @@ namespace Ex03.GarageLogic
 {
     public class Garage
     {
-
         private const string k_NewLines = "\n\n";
 
         private readonly List<string> r_VehiclesTypeNames = new List<string> { "Motorized Car", "Motorized Motorcycle", "Truck", "Electric Car", "Electric Motorcycle" };
         //private readonly List<string> r_VehiclesTypeNames = new List<string> { "Motorized Car", "Motorized Motorcycle", "Truck", "Electric Car", "Electric Motorcycle", "Tractor" };
 
-        private Dictionary<string, VehicleInGarage> m_Vehicles;
+        private Dictionary<string, VehicleInGarage> m_VehiclesOfClients;
 
 
-        public Dictionary<string, VehicleInGarage> Vehicles
+        public Dictionary<string, VehicleInGarage> VehiclesOfClients
         {
-            get { return m_Vehicles; }
-            set { m_Vehicles = value; }
+            get { return m_VehiclesOfClients; }
+            set { m_VehiclesOfClients = value; }
         }
 
         public enum eVehiclesType
@@ -50,19 +49,19 @@ namespace Ex03.GarageLogic
 
         public Garage()
         {
-            m_Vehicles = new Dictionary<string, VehicleInGarage>();
+            m_VehiclesOfClients = new Dictionary<string, VehicleInGarage>();
         }
 
         public void RemoveVehicle(string i_LicenseNumber)
         {
-            m_Vehicles.Remove(i_LicenseNumber);
+            m_VehiclesOfClients.Remove(i_LicenseNumber);
         }
 
         public VehicleInGarage GetVehicle(string i_LicenseNumber)
         {
-            if (m_Vehicles.ContainsKey(i_LicenseNumber))
+            if (m_VehiclesOfClients.ContainsKey(i_LicenseNumber))
             {
-                return m_Vehicles[i_LicenseNumber];
+                return m_VehiclesOfClients[i_LicenseNumber];
             }
 
             return null;
@@ -72,7 +71,7 @@ namespace Ex03.GarageLogic
         {
             VehicleInGarage vehicleInGarage = new VehicleInGarage(i_vehicle, i_OwnerName, i_OwnerPhone, VehicleInGarage.eVehicleState.UnderRepair);
 
-            m_Vehicles.Add(i_vehicle.LicenseNumber, vehicleInGarage);
+            m_VehiclesOfClients.Add(i_vehicle.LicenseNumber, vehicleInGarage);
         }
 
         public void UpdateVehicleState(string i_LicenseNumber, VehicleInGarage.eVehicleState i_VehicleState)
@@ -81,7 +80,7 @@ namespace Ex03.GarageLogic
 
             if (vehicle != null)
             {
-                m_Vehicles[i_LicenseNumber].VehicleState = i_VehicleState;
+                m_VehiclesOfClients[i_LicenseNumber].VehicleState = i_VehicleState;
             }
             else
             {

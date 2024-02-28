@@ -227,7 +227,7 @@ Please choose from the following options:
             bool isVehicleStateExist = false;
             int count = 1;
 
-            foreach (VehicleInGarage vehicle in m_Garage.Vehicles.Values)
+            foreach (VehicleInGarage vehicle in m_Garage.VehiclesOfClients.Values)
             {
                 if (vehicle.VehicleState == i_State)
                 {
@@ -373,7 +373,7 @@ Please choose from the following options:
             int counter = 1;
             Console.WriteLine("------Vehicle's License Numbers------\n\n");
 
-            foreach (VehicleInGarage vehicle in m_Garage.Vehicles.Values)
+            foreach (VehicleInGarage vehicle in m_Garage.VehiclesOfClients.Values)
             {
                 Console.WriteLine(counter++ + ". " + vehicle.Vehicle.LicenseNumber + $" - {vehicle.VehicleState}");
             }
