@@ -42,7 +42,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GarageManegment.cs" />
+    <Compile Include="GarageManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Validations.cs" />
   </ItemGroup>
