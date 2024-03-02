@@ -1,9 +1,6 @@
 ﻿using System;
 using Ex03.GarageLogic;
-//using static Ex03.GarageLogic.Garage;
-//using static Ex03.GarageLogic.MotorizedVehicle;
 using static Ex03.ConsoleUI.Validations;
-using Ex03.garageLogic;
 
 namespace Ex03.ConsoleUI
 {
@@ -15,7 +12,6 @@ namespace Ex03.ConsoleUI
 
         private bool   m_ContinueProgram;
         private Garage m_Garage;
-
 
         public GarageManagement()
         {
@@ -72,11 +68,9 @@ Please choose from the following options:
             MenuMessage();
             int choice;
 
-
             if (int.TryParse(Console.ReadLine(), out choice))
             {
                 Console.WriteLine();
-
                 switch (choice)
                 {
                     case 1:
@@ -84,7 +78,6 @@ Please choose from the following options:
                             AddNewVehicleToTheGarage();
                             break;
                         }
-
                     case 2:
                         {
                             if (AskIfDisplayByState())
@@ -99,19 +92,16 @@ Please choose from the following options:
 
                             break;
                         }
-
                     case 3:
                         {
                             UpdateVehicleState();
                             break;
                         }
-
                     case 4:
                         {
                             InflateWheels();
                             break;
                         }
-
                     case 5:
                         {
                             Refuel();
@@ -122,13 +112,11 @@ Please choose from the following options:
                             Charge();
                             break;
                         }
-
                     case 7:
                         {
                             DisplayVehicleDetails();
                             break;
                         }
-
                     case 8:
                         {
                             m_ContinueProgram = false;
@@ -150,16 +138,13 @@ Please choose from the following options:
 
         public void AddNewVehicleToTheGarage()
         {
-
             string ownerName = null, ownerPhone = null, licenseNumber = null, modelName = null, wheelsManuFacturerName = null;
             float currentWheelsAirPressure = 0;
+            VehicleInGarage vehicleOfClient = GetLicenseNumberAndCheckIsExists(ref licenseNumber);
 
-            VehicleInGarage vehicleInGarage = GetLicenseNumberAndCheckIsExists(ref licenseNumber);
-
-            if (vehicleInGarage == null)
+            if (vehicleOfClient == null)
             {
                 int vehicleType = GetVehicleType(m_Garage.VehiclesTypeNames);
-
                 Vehicle vehicle = m_Garage.CreateNewVehicle(vehicleType);
 
                 Console.WriteLine("Enter the model name: ");
@@ -169,22 +154,16 @@ Please choose from the following options:
                 float currentEnergyAmount = GetCurrentEnergyAmount(vehicle.IsFueled, vehicle.MaxEnergyAmount);
 
                 vehicle.EnergyPercentage = (currentEnergyAmount / vehicle.MaxEnergyAmount) * 100;
-
                 GetWheelsDetails(ref wheelsManuFacturerName, ref currentWheelsAirPressure, vehicle.MaxAirPressure);
-
                 vehicle.SetVehicleData(modelName, licenseNumber, wheelsManuFacturerName, currentWheelsAirPressure);
-
                 GetAnswersAboutSpecificDetailsOfTheVehicle(vehicle);
-
                 GetOwnerDetails(ref ownerName, ref ownerPhone);
-
                 m_Garage.AddNewVehicle(vehicle, ownerName, ownerPhone);
-
                 Console.WriteLine("Your vehicle is being repaired" + k_NewLines);
             }
             else
             {
-                vehicleInGarage.VehicleState = VehicleInGarage.eVehicleState.UnderRepair;
+                vehicleOfClient.VehicleState = VehicleInGarage.eVehicleState.UnderRepair;
                 Console.WriteLine("The vehicle return to be UnderRepair\n");
             }
         }
@@ -207,19 +186,20 @@ Please choose from the following options:
             io_LicenseNumber = Console.ReadLine();
             Console.WriteLine();
             CheckLicenseNumberValidation(io_LicenseNumber);
+            VehicleInGarage vehicleOfClient = m_Garage.GetVehicle(io_LicenseNumber);
 
-            VehicleInGarage vehicle = m_Garage.GetVehicle(io_LicenseNumber);
-
-            if (vehicle != null)
+            if (vehicleOfClient != null)
             {
-                Console.WriteLine($"This vehicle is exist in the system!\n");
+                Vehicle kindOfVehicle = vehicleOfClient.Vehicle;
+                string type1 = kindOfVehicle.GetVehicleType();
+                Console.WriteLine($"This vehicle {type1} is exist in the system!\n");
                 /*if (vehicle.Vehicle is MotorizedCar)
                 {
                     Console.WriteLine($"This Motorized Car is exist in the system!\n");
                 }*/
             }
 
-            return vehicle;
+            return vehicleOfClient;
         }
 
         public void DisplayVehiclesLicenseNumbersByState(VehicleInGarage.eVehicleState i_State)
@@ -267,7 +247,6 @@ Please choose from the following options:
                 Console.WriteLine();
                 throw new FormatException(k_InvalidInputMessage + k_NewLines);
             }
-
             else if (newState < 1 || newState > 3)
             {
                 Console.WriteLine();
@@ -278,7 +257,7 @@ Please choose from the following options:
                 Console.WriteLine();
                 VehicleInGarage.eVehicleState eNewState = (VehicleInGarage.eVehicleState)newState;
                 m_Garage.UpdateVehicleState(licenseNumber, eNewState);
-                Console.WriteLine($"The status of {licenseNumber} has been changed to {eNewState.ToString()}\n\n");
+                Console.WriteLine($"The status of {licenseNumber} has been changed to {eNewState}\n\n");
             }
         }
 
@@ -288,9 +267,7 @@ Please choose from the following options:
             string licenseNumber = Console.ReadLine();
             Console.WriteLine();
             CheckLicenseNumberValidation(licenseNumber);
-
             m_Garage.InflateWheels(licenseNumber);
-
             Console.WriteLine("The wheels were inflated to the maximum position\n\n");
         }
 
@@ -315,24 +292,20 @@ Please choose from the following options:
                 Console.WriteLine();
                 throw new FormatException(k_InvalidInputMessage + k_NewLines);
             }
-
             else if (fuelType < 1 || fuelType > 4)
             {
                 Console.WriteLine();
                 throw new Exception(k_InvalidInputMessage + k_NewLines);
             }
-
             else
             {
                 Console.WriteLine();
                 Console.WriteLine("Please enter the amount of fuel to fill: ");
-
                 if (!(float.TryParse(Console.ReadLine(), out fuelAmountToFill)))
                 {
                     Console.WriteLine();
                     throw new FormatException(k_InvalidInputMessage + k_NewLines);
                 }
-
                 else
                 {
                     Console.WriteLine();
@@ -365,7 +338,6 @@ Please choose from the following options:
             }
 
             Console.WriteLine("Charging completed successfully\n\n");
-
         }
 
         public void DisplayVehiclesLicenseNumbers()

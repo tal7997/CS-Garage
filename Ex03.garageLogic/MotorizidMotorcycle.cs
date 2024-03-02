@@ -1,6 +1,4 @@
-﻿using Ex03.garageLogic;
-using System;
-//using static Ex03.GarageLogic.MotorizedVehicle;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
@@ -129,7 +127,13 @@ $@"License Type: {m_LicenseType}
 Engine Volume: {m_EngineVolume}
 
 ");
+
             return message;
+        }
+
+        public override string GetVehicleType()
+        {
+            return "Motorizid Motorcycle";
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Ex03.garageLogic;
-using System;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
@@ -142,7 +141,13 @@ $@"Color: {m_Color}
 Number Of Doors: {m_NumberOfDoors}
 
 ");
+
             return message;
+        }
+
+        public override string GetVehicleType()
+        {
+            return "Motorized Car";
         }
     }
 }

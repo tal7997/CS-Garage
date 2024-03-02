@@ -1,7 +1,4 @@
-﻿using Ex03.garageLogic;
-using System;
-//using static Ex03.GarageLogic.ElectricCar;
-//using static Ex03.GarageLogic.MotorizedCar;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
@@ -46,7 +43,6 @@ namespace Ex03.GarageLogic
             set { m_FuelType = value; }
         }
 
-
         public override void SetVehicleData(string i_ModelName, string i_LicenseNumber, string i_WheelsManuFacturerName, float i_CurrentWheelsAirPressure)
         {
             base.SetVehicleData(i_ModelName, i_LicenseNumber, i_WheelsManuFacturerName, i_CurrentWheelsAirPressure);
@@ -82,6 +78,7 @@ Current Fuel Amount: {m_CurrentFuelAmount}
 Max Fuel Amout: {m_MaxFuelAmount}
 Fuel Type: {m_FuelType}
 ");
+
             return message;
         }
     }

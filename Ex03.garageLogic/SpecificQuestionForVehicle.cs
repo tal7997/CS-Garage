@@ -2,7 +2,6 @@
 {
     public class SpecificQuestionForVehicle
     {
-
         private string m_Question;
         private string m_VehicleSpecificDataMemberName;
 

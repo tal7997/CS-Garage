@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ex03.garageLogic
+namespace Ex03.GarageLogic
 {
     public class Wheel
     {
@@ -71,6 +71,7 @@ Current Air Pressure: {m_CurrentAirPressure}
 Max Air Pressure: {m_MaxAirPressure}
 
 ");
+
             return message;
         }
     }

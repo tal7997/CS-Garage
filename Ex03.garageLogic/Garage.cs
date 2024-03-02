@@ -1,7 +1,5 @@
-﻿using Ex03.garageLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
-//using static Ex03.GarageLogic.VehicleInGarage;
 
 namespace Ex03.GarageLogic
 {
@@ -13,7 +11,6 @@ namespace Ex03.GarageLogic
         //private readonly List<string> r_VehiclesTypeNames = new List<string> { "Motorized Car", "Motorized Motorcycle", "Truck", "Electric Car", "Electric Motorcycle", "Tractor" };
 
         private Dictionary<string, VehicleInGarage> m_VehiclesOfClients;
-
 
         public Dictionary<string, VehicleInGarage> VehiclesOfClients
         {

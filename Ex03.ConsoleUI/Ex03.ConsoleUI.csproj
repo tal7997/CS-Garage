@@ -36,9 +36,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex03.garageLogic\Ex03.garageLogic.csproj">
+    <ProjectReference Include="..\Ex03.garageLogic\Ex03.GarageLogic.csproj">
       <Project>{d4af754b-ca41-4a76-8133-aa5cdf4764aa}</Project>
-      <Name>Ex03.garageLogic</Name>
+      <Name>Ex03.GarageLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

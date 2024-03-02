@@ -1,11 +1,9 @@
-﻿using Ex03.garageLogic;
-using System;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
     public class ElectricCar : ElectricVehicle
     {
-
         private const string k_ColorTopicName = "Color";
         private const string k_NumberOfDoorsTopicName = "Number Of Doors";
         private const float k_MaxBatteryTime = 4.8f;
@@ -65,7 +63,6 @@ namespace Ex03.GarageLogic
             }
         }
 
-
         public ElectricCar()
         {
             SpecificQuestionForVehicle specificQuestionForElectricCar1 = new SpecificQuestionForVehicle();
@@ -122,13 +119,12 @@ namespace Ex03.GarageLogic
 
         public void CheckValidationForNumberOfDoorsAndSetIfValid(string i_Answer)
         {
-            int answer = 0;
+            int answer;
 
             if (!(int.TryParse(i_Answer, out answer)))
             {
                 throw new FormatException(k_InvalidInputMessage + k_NewLines);
             }
-
             else
             {
                 NumberOfDoors = (eNumberOfDoors)answer;
@@ -141,7 +137,13 @@ namespace Ex03.GarageLogic
 $@"Color: {m_Color}
 Number Of Doors: {m_NumberOfDoors}
 ");
+
             return message;
+        }
+
+        public override string GetVehicleType()
+        {
+            return "Elctric car";
         }
     }
 }

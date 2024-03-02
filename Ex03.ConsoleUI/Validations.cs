@@ -17,7 +17,6 @@ namespace Ex03.ConsoleUI
             int counter = 1, vehicleType;
 
             Console.WriteLine("Enter your vehicle type, please choose one of the following options:");
-
             foreach (string vehicleTypeName in i_VehiclesTypeNames)
             {
                 Console.WriteLine(counter++ + ". " + vehicleTypeName);
@@ -45,7 +44,6 @@ namespace Ex03.ConsoleUI
 
             Console.WriteLine(String.Format("Please enter the current {0} amount (Maximum: {1}):",
                     i_IsFueled == true ? "fuel" : "battery", i_MaxVehicleEnergyAmount));
-
             if (!(float.TryParse(Console.ReadLine(), out currentEnergyAmount)))
             {
                 Console.WriteLine();
@@ -54,6 +52,7 @@ namespace Ex03.ConsoleUI
             else
             {
                 Console.WriteLine();
+
                 return currentEnergyAmount;
             }
         }
@@ -63,9 +62,7 @@ namespace Ex03.ConsoleUI
             Console.WriteLine("Please enter wheel's manufacturer name:");
             io_ManufacturerName = Console.ReadLine();
             Console.WriteLine();
-
             Console.WriteLine($"Enter the current air pressure: (Maximum: {i_MaxAirPressure})");
-
             if (!(float.TryParse(Console.ReadLine(), out io_CurrentAirPressure)))
             {
                 Console.WriteLine();
@@ -94,6 +91,7 @@ namespace Ex03.ConsoleUI
         {
             int input;
             bool answer = false;
+
             Console.WriteLine(@"Do you want to display vehicle by their state?
 1. Yes
 2. No");
@@ -121,6 +119,7 @@ namespace Ex03.ConsoleUI
         public static int GetVehicleState()
         {
             int state;
+
             Console.WriteLine(@"Please enter the vehicle state, choose one of the following states: 
 1. Under Repair
 2. Repaired

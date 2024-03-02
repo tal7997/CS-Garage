@@ -1,14 +1,10 @@
-﻿using Ex03.garageLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Ex03.GarageLogic
 {
     public abstract class Vehicle
     {
-
         protected const string k_NewLines = "\n\n";
         protected const string k_InvalidInputMessage = "Invalid Input!";
 
@@ -114,7 +110,6 @@ namespace Ex03.GarageLogic
             set { m_IsFueled = value; }
         }
 
-
         public abstract void CheckValidationForSpecificDetailsAndSetIfValid(SpecificAnswerForVehicle i_SpecificAnswer);
 
         public virtual void SetVehicleData(string i_ModelName, string i_LicenseNumber,
@@ -137,7 +132,10 @@ namespace Ex03.GarageLogic
         public override string ToString()
         {
             string message = string.Format("Model Name: {0}\nLicense Number: {1}\nEnergy Percentage: {2:F2}%\n\nWheels Details:\n\n{3}", m_ModelName, m_LicenseNumber, m_EnergyPercentage, m_Wheels[0].ToString());
+            
             return message;
         }
+
+        public abstract string GetVehicleType();
     }
 }

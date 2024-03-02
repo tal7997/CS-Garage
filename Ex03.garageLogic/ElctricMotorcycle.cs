@@ -1,11 +1,9 @@
-﻿using Ex03.garageLogic;
-using System;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
     public class ElectricMotorcycle : ElectricVehicle
     {
-
         private const float k_MaxAirPressure = 29f;
         private const float k_MaxBatteryTime = 2.8f;
         private const int k_NumOfWheels = 2;
@@ -127,7 +125,13 @@ $@"License Type: {m_LicenseType}
 Engine Volume: {m_EngineVolume}
 
 ");
+
             return message;
+        }
+
+        public override string GetVehicleType()
+        {
+            return "Elctric motorcycle";
         }
     }
 }

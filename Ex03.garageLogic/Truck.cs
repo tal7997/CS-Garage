@@ -1,14 +1,9 @@
-﻿using Ex03.garageLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 
 namespace Ex03.GarageLogic
 {
     public class Truck : MotorizedVehicle
     {
-
         private const string k_CarriesHazardousMaterialsTopicName = "Is Carries Hazardous Materials";
         private const string k_CargoVolumeTopicName = "Cargo Volume";
         private const float k_MaxFuelAmount = 110f;
@@ -114,7 +109,13 @@ $@"Carries Hazardous Materials: {m_CarriesHazardousMaterials}
 Cargo Volume: {m_CargoVolume}
 
 ");
+
             return message;
+        }
+
+        public override string GetVehicleType()
+        {
+            return "Truck";
         }
     }
 }

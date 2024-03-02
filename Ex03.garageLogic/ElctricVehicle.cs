@@ -1,6 +1,4 @@
-﻿using Ex03.garageLogic;
-
-namespace Ex03.GarageLogic
+﻿namespace Ex03.GarageLogic
 {
     public abstract class ElectricVehicle : Vehicle
     {
@@ -48,6 +46,7 @@ $@"General Details:
 Max Battery Time: {m_MaxBatteryTime}
 Current Battery Time: {m_CurrentBatteryTime}
 ");
+
             return message;
         }
     }
